@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: ["master"]
 env:
-  base_url: "Accept:application/vnd.github.v3+json"
+  base_url: $GITHUB_API_URL/repos/$GITHUB_WORKSPACE/actions/run
 
 jobs:
   job1:
