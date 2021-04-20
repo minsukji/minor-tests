@@ -18,3 +18,17 @@ jobs:
         ls -alF
         echo $GITHUB_WORKSPACE
         echo ${{ github.workspace }}
+        cd files
+        ls -alF
+
+    - name: Second step
+      run: |
+        pwd
+        ls -alF
+        cd files
+        pwd
+        ls -alF
+        cd ${{ github.workspace }}
+        pwd
+        ls -alF
+        
