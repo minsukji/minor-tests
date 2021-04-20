@@ -7,9 +7,6 @@ on:
 env:
   base_url: "Accept:application/vnd.github.v3+json"
 
-#env:
-#  base_url: "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/runs"
-
 jobs:
   job1:
     name: Job 1
@@ -18,16 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: First step
-      run: |
-        echo $base_url
-        #echo ${{ env.base_url }}
-        #echo ${{ base_url }}
+      run: echo $base_url
 
     - name: Second step
-      run: |
-        echo $base_url
-        #echo ${{ env.base_url }}
-        #echo ${{ base_url }}
+      run: echo $base_url
         
 
   job2:
@@ -36,7 +27,4 @@ jobs:
 
     steps:
     - name: First step
-      run: |
-        echo $base_url
-        #echo ${{ env.base_url }}
-        #echo ${{ base_url }}
+      run: echo $base_url
