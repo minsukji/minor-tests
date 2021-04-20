@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: ["master"]
 env:
-  base_url: $GITHUB_API_URL/repos/${{ github.workspace }}/actions/run
+  base_url: $GITHUB_API_URL/repos/${{ github.repository }}/actions/run
 
 jobs:
   job1:
@@ -18,7 +18,10 @@ jobs:
       run: echo $base_url
 
     - name: Second step
-      run: echo $base_url
+      run: |
+        echo $base_url
+        echo $GITHUB_REPOSITORY
+        echo ${{ github.repository }}
         
 
   job2:

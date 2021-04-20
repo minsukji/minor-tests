@@ -1,0 +1,13 @@
+name: Aux
+on:
+  workflow_run:
+    workflows: ["Tests"]
+    types:
+      - requested
+
+jobs:
+  job1:
+    name: Job 1
+    run: |
+      echo $GITHUB_REPOSITORY
+      echo ${{ github.repository }}
