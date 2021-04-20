@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    - name First step
+    - name: First step
       run: |
         echo $base_url
         echo ${{ env.base_url }}
