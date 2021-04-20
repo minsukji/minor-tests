@@ -1,0 +1,20 @@
+name: Tests
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: First step
+      run: |
+        pwd
+        ls -alF
+        echo $GITHUB_WORKSPACE
+        echo ${{ github.workspace }}
