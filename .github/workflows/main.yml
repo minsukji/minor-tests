@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: ["master"]
 env:
-  base_url: $GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/runs
+  base_url: "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/runs"
 
 jobs:
   job1:
@@ -16,14 +16,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: First step
       run: |
-        #echo $base_url
-        #echo ${{ env.base_url }}
+        echo $base_url
+        echo ${{ env.base_url }}
         echo ${{ base_url }}
 
     - name: Second step
       run: |
-        #echo $base_url
-        #echo ${{ env.base_url }}
+        echo $base_url
+        echo ${{ env.base_url }}
         echo ${{ base_url }}
         
 
@@ -34,6 +34,6 @@ jobs:
     steps:
     - name: First step
       run: |
-        #echo $base_url
-        #echo ${{ env.base_url }}
+        echo $base_url
+        echo ${{ env.base_url }}
         echo ${{ base_url }}
