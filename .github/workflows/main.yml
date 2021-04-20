@@ -17,14 +17,14 @@ jobs:
     - name: First step
       run: |
         echo $base_url
-        echo ${{ env.base_url }}
-        echo ${{ base_url }}
+        #echo ${{ env.base_url }}
+        #echo ${{ base_url }}
 
     - name: Second step
       run: |
         echo $base_url
-        echo ${{ env.base_url }}
-        echo ${{ base_url }}
+        #echo ${{ env.base_url }}
+        #echo ${{ base_url }}
         
 
   job2:
@@ -35,5 +35,5 @@ jobs:
     - name: First step
       run: |
         echo $base_url
-        echo ${{ env.base_url }}
-        echo ${{ base_url }}
+        #echo ${{ env.base_url }}
+        #echo ${{ base_url }}
