@@ -22,6 +22,11 @@ jobs:
         echo "app is $app"
         FOO=bar
         echo $FOO
+        echo -e "Hello\nWorld\nI am here" | wc -l
+        echo -e "Hello\nWorld\nI am here" | \
+          wc -l
+        echo -e "Hello\nWorld\nI am here" \
+          | wc -l
 
     - name: Second step
       run: |
