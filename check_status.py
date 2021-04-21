@@ -13,7 +13,7 @@ def check_build(request, no_builds):
     time.sleep(20)
     response = urlopen(request)
     data = json.loads(response.read().decode())["jobs"]
-    ids = [x["id"] for x in data if re.search("Build", x["name"])]
+    ids = [x["id"] for x in data if re.search("Job", x["name"])]
     if len(ids) == 1 and next(re.search("matrix", x["name"]) for x in data if x["id"] in ids):
       break
     if len(ids) != no_builds:
