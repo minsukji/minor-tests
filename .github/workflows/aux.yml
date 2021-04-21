@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
+    - uses: actions/checkout@v2
+
     - name: Step 1
       run: |
         url=https://api.github.com/repos/minsukji/actions/runs/${{github.event.workflow_run.id}}/jobs
