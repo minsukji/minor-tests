@@ -15,8 +15,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: First step
       run: |
+        pwd
+        ls -l
+        cd ~
+        pwd
+        ls -l
+
         eval url=$base_url/${{ github.run_id }}/jobs
         echo "url is $url"
         echo "app is $app"
