@@ -20,13 +20,15 @@ jobs:
         eval url=$base_url/${{ github.run_id }}/jobs
         echo "url is $url"
         echo "app is $app"
-        exit 1
+        FOO=bar
+        echo $FOO
 
     - name: Second step
       run: |
         eval url=$base_url/${{ github.run_id }}/jobs
         echo "url is $url"
         echo "app is $app"
+        echo $FOO
         
 
   job2:
@@ -39,3 +41,4 @@ jobs:
         eval url=$base_url/${{ github.run_id }}/jobs
         echo "url is $url"
         echo "app is $app"
+        echo $FOO
