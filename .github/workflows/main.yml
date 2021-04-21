@@ -20,6 +20,7 @@ jobs:
         eval url=$base_url/${{ github.run_id }}/jobs
         echo "url is $url"
         echo "app is $app"
+        exit 1
 
     - name: Second step
       run: |
