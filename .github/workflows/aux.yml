@@ -4,6 +4,8 @@ on:
     workflows: ["Tests"]
     types:
       - requested
+env:
+  AUTH: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   job1:
@@ -15,3 +17,13 @@ jobs:
       run: |
         echo $GITHUB_REPOSITORY
         echo ${{ github.repository }}
+
+  job2:
+    name: Job 2
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Step 1
+      run: |
+        url=https://api.github.com/repos/minsukji/actions/runs/${{github.event.workflow_run.id}}/jobs
+        b_r=$(echo -n $url | ./check_status.py build 1)
