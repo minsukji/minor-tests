@@ -12,45 +12,41 @@ jobs:
   job1:
     name: Job 1
     runs-on: ubuntu-20.04
+    outputs:
+      param1: ${{ steps.current.outputs.flag }}
 
     steps:
     - uses: actions/checkout@v2
 
     - name: First step
-      run: |
-        pwd
-        ls -l
-        cd ~
-        pwd
-        ls -l
+      id: current
+      run: echo "::set-output name=flag::yes"
 
-        eval url=$base_url/${{ github.run_id }}/jobs
-        echo "url is $url"
-        echo "app is $app"
-        FOO=bar
-        echo $FOO
-        echo -e "Hello\nWorld\nI am here" | wc -l
-        echo -e "Hello\nWorld\nI am here" | \
-          wc -l
-        echo -e "Hello\nWorld\nI am here" \
-          | wc -l
-
-    - name: Second step
-      run: |
-        eval url=$base_url/${{ github.run_id }}/jobs
-        echo "url is $url"
-        echo "app is $app"
-        echo $FOO
-        
 
   job2:
     name: Job 2
+    needs: job1
     runs-on: ubuntu-20.04
+    if: needs.job1.outputs.param1 == 'yes'
+    outputs:
+      started: ${{ steps.next.outputs.flag }}
 
     steps:
+    - uses: actions/checkout@v2
+
     - name: First step
-      run: |
-        eval url=$base_url/${{ github.run_id }}/jobs
-        echo "url is $url"
-        echo "app is $app"
-        echo $FOO
+      id: next
+      run: echo "::set-output name=flag::yes"
+
+
+  job3:
+    name: Job 3
+    needs: job2
+    runs-on: ubuntu-20.04
+    if: needs.job2.outputs.started == 'yes'
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: First step
+      run: echo "Reporting from Job 3!"
