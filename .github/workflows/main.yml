@@ -20,7 +20,7 @@ jobs:
 
     - name: First step
       id: current
-      run: echo "::set-output name=flag::no"
+      run: echo "::set-output name=flag::yes"
 
 
   job2:
@@ -36,8 +36,14 @@ jobs:
 
     - name: First step
       id: next
-      run: echo "::set-output name=flag::yes"
+      run: |
+        echo "Hello" > test_file
+        echo "::set-output name=flag::yes"
 
+    - uses: actions/upload-artifact@v2
+      with:
+        name: memory_stat
+        path: test_file
 
   job3:
     name: Job 3
