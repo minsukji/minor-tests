@@ -20,7 +20,7 @@ jobs:
 
     - name: First step
       id: current
-      run: echo "::set-output name=flag::yes"
+      run: echo "::set-output name=flag::no"
 
 
   job2:
